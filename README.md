@@ -6,7 +6,7 @@ Esneider Manzano  y Jem Pool Suarez
 ### Ver DEMO: https://esneidermanzano.github.io/1D-cellular-automaton/
 
 Como Ejecutar:
-Archivo html, el index.html se abre en cualquier navegador 
+Archivo html, el index.html se abre en cualquier navegador, use una resolucion no inferior a 1366x768 pixels
 
 Algunas instrucciones:
 1) Unidades históricas: cuánto tiempo quiere mostrar
