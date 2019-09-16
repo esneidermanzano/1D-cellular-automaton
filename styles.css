@@ -1,0 +1,298 @@
+body{
+    max-height: 100vh;
+    overflow: scroll;
+    font-family: 'Calibri'
+}
+
+  #canvas-ctn{
+    width: calc(100% - 350px);
+    min-width: 1010px;
+    right:10px!important;    
+    position: absolute;
+    text-align: center;
+  }
+
+
+  canvas{
+    margin: auto;
+    text-align: center
+  }
+
+  #more-canvas canvas{
+    display:block;
+
+    z-index: -10!important
+  }
+  #more-canvas{
+    z-index: -10!important
+  }
+  #sidebar{
+    width: 300px;
+    height: 100vh;
+    left:0px;
+    padding: 10px;
+    padding-top: 0px;
+    position: fixed;
+    background: #eee;
+    top:0;
+    text-align: center;
+  }
+
+  #sidebar p{
+    padding-top: 10px;
+    text-align: left
+  }
+  select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input:disabled{
+  opacity: 0.4;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  margin: 10px 1px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+button:disabled {
+  opacity: .5;
+}
+
+#stop-button{
+  background-color: #D10024;
+}
+
+#go-button{
+  min-width: 90px;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 5px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+  transition: 0.2s all;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  width: 25px;
+  height: 25px;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  border: 2px solid #4CAF50;
+  border-radius: 5PX;
+  padding: 5px
+}
+
+.dropdown img{
+  display: block;
+}
+
+.dropdown-content {
+  transform:scale(0);
+  padding-top:10px;
+  margin-top: 10px;
+  margin-left: -10px;
+  position: absolute;
+  background-color: #f1f1f1;  
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1000!important;
+  max-height: 310px;
+  min-width: 350px;
+  overflow: scroll;
+  transition:  0.2s;
+}
+.dropdown:hover .dropdown-content {
+	transform:scale(1);
+	transition:  0.2s all;
+}
+
+.dropdown-content button{
+  background: #f1f1f1;
+  margin: 0px 0;
+  color:#333;
+  transition: 0.2s
+}
+
+.dropdown-content button:hover{
+  background: #4CAF50;
+  color: #fff
+
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+#custom-ctn{
+  opacity: 0.4;
+  transition: 0.5s
+}
+
+.container {
+  position: relative;
+  padding-left: 25px;
+  margin-right: 15px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.states-ctn{
+  position: relative;
+  height: 5px;
+  margin-top: 10px;
+}
+
+.containerCell {
+  position: relative;
+  margin:29.8px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  user-select: none;  
+}
+
+/* Hide the browser's default radio button */
+.container input, .containerCell input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark, .checkmarkBox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color: #ccc;
+  border-radius: 50%;
+  transition: 0.5s;
+}
+.container input:disabled ~ .checkmark, .container input:disabled ~ .checkmarkBox {
+  opacity: 0.5;
+}
+
+.checkmarkState{
+  position: absolute;
+  margin:-9px;
+	height: 14px;
+	width: 14px;
+	background-color: #fff;
+	border: 1px solid #333;
+  transition: 0.5s
+}
+
+.checkmarkBox, .checkmarkState {
+  border-radius: 0%;
+}
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark, .container:hover input ~ .checkmarkBox {
+  background-color: #797979;
+}
+
+.containerCell input:checked ~ .checkmarkState {
+  background-color: #000;
+}
+
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark, .container input:checked ~ .checkmarkBox {
+  background-color: #4CAF50;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after, .checkmarkBox:after {
+  content: "";
+  position: absolute;
+  transform: scale(0);
+  transition: 0.4s;  
+}
+
+.checkmarkBox:after {
+  content: "";
+  position: absolute;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after{
+  transform: scale(1);
+  background: white;
+}
+
+
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after{
+ 	top: 5px;
+	left: 5px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;	
+}
+.container .checkmarkBox:after  {
+  transition: 0.4s;
+  left: 5px;
+  top: 0px;
+  width: 5px;
+  height: 10px;
+  border: solid #ccc;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+  
+}
+
+.container input:checked ~ .checkmarkBox:after {
+  border: solid #fff;
+  border-width: 0 3px 3px 0;
+}
+
+#line2{
+  margin-left:-5px;
+  margin-bottom: 5px;

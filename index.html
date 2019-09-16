@@ -1,0 +1,127 @@
+<html>
+<head>
+  <link rel="stylesheet" href="styles.css">
+  <title>1D Cellular Automaton</title>
+</head>
+<body>
+  <div id="sidebar">
+      <form>
+      <p>Unidades historicas: <span id="timeSpan"></span></p>
+      <input type="range" min="1" max="2000" value="1000" 
+      class="slider" id="timeRange" oninput="changeRange()">
+     
+      <p>Tamaño de célula: <span id="sizeSpan"></span></p>
+      <input type="range" min="1" max="15" value="10" 
+      class="slider" id="cellSize"  oninput="changeSize()">
+      
+
+      <p>Número de celdas: <span id="numberSpan"></span></p>
+      <input type="range" min="10" max="100" value="100" 
+      class="slider" id="cellNumber"  oninput="changeNumber()">
+      
+      <br/><br/>
+      <div class="dropdown">          
+          <img id="imageRule" src="images/rule110.png"/>
+          <span id="ruleName">Regla 110</span>        
+        <div class="dropdown-content">
+          <button type="button" onclick="setRule('30')"><span>Regla 30</span><img src="images/rule30.png"/></button>
+          <button type="button" onclick="setRule('54')"><span>Regla 54</span><img src="images/rule54.png"/></button>
+          <button type="button" onclick="setRule('60')"><span>Regla 60</span><img src="images/rule60.png"/></button>
+          <button type="button" onclick="setRule('62')"><span>Regla 62</span><img src="images/rule62.png"/></button>
+          <button type="button" onclick="setRule('90')"><span>Regla 90</span><img src="images/rule90.png"/></button>
+          <button type="button" onclick="setRule('94')"><span>Regla 94</span><img src="images/rule94.png"/></button>
+          <button type="button" onclick="setRule('110')"><span>Regla 110</span><img src="images/rule110.png"/></button>
+          <button type="button" onclick="setRule('122')"><span>Regla 122</span><img src="images/rule122.png"/></button>
+          <button type="button" onclick="setRule('126')"><span>Regla 126</span><img src="images/rule126.png"/></button>
+          <button type="button" onclick="setRule('150')"><span>Regla 150</span><img src="images/rule150.png"/></button>
+          <button type="button" onclick="setRule('158')"><span>Regla 158</span><img src="images/rule158.png"/></button>
+          <button type="button" onclick="setRule('182')"><span>Regla 182</span><img src="images/rule182.png"/></button>
+          <button type="button" onclick="setRule('188')"><span>Regla 188</span><img src="images/rule188.png"/></button>
+          <button type="button" onclick="setRule('190')"><span>Regla 190</span><img src="images/rule190.png"/></button>
+        </div>
+      </div>
+      <br/><br/>      
+      <label class="container">Triángulo
+        <input id="triangle-input" type="radio" onchange="setOption('triangle')" checked="checked" name="radio">
+        <span class="checkmark"></span>
+      </label>
+      <label class="container">Random
+        <input id="random-input" type="radio" onchange="setOption('random')" name="radio">
+        <span class="checkmark"></span>
+      </label>
+      <label class="container">Dibujar
+        <input id="draw-input" type="radio" onchange="setOption('custom')" name="radio">
+        <span class="checkmark"></span>
+      </label>
+      <br/><br/> 
+      <label class="container">Usar regla personalizada
+        <input id="custom-input" onchange="selectCustom()" type="checkbox" >
+        <span class="checkmarkBox"></span>
+      </label>
+      <br/><br/> 
+      <div id="custom-ctn">
+        <img src="images/line1.png"/>
+        <br/>
+
+        <div class="states-ctn">
+          <label class="containerCell">
+            <input class="radio-custom" onchange="customRule(8)" type="checkbox" checked="checked">
+            <span class="checkmarkState"></span>
+          </label>
+
+          <label class="containerCell">
+            <input class="radio-custom" onchange="customRule(7)" type="checkbox" checked="checked">
+            <span class="checkmarkState"></span>
+          </label>
+
+          <label class="containerCell">
+            <input class="radio-custom" onchange="customRule(6)" type="checkbox" checked="checked">
+            <span class="checkmarkState"></span>
+          </label>
+
+          <label class="containerCell">
+            <input class="radio-custom" onchange="customRule(5)" type="checkbox" checked="checked">
+            <span class="checkmarkState"></span>
+          </label>        
+        </div>
+
+        <br/>
+        <img id="line2" src="images/line2.png"/>
+        
+        <div class="states-ctn">
+          <label class="containerCell">
+            <input class="radio-custom" onchange="customRule(4)" type="checkbox" checked="checked">
+            <span class="checkmarkState"></span>
+          </label>
+    
+          <label class="containerCell">
+            <input class="radio-custom" onchange="customRule(3)" type="checkbox" checked="checked">
+            <span class="checkmarkState"></span>
+          </label>
+    
+          <label class="containerCell">
+            <input class="radio-custom" onchange="customRule(2)" type="checkbox" checked="checked">
+            <span class="checkmarkState"></span>
+          </label>
+    
+          <label class="containerCell">
+            <input class="radio-custom" onchange="customRule(1)" type="checkbox" checked="checked">
+            <span class="checkmarkState"></span>
+          </label>
+        </div>
+      </div>
+      <br/> <br/> 
+      <button type="button" onclick="clearBoard()">Limpiar</button> 
+      <button id="stop-button" type="button" onclick="stopRun()" disabled>Detener</button> 
+      <button id="go-button" type="button" onclick="runAutomata()">Go!</button> 
+      
+    </form>   
+  </div>
+  <div id="canvas-ctn">
+    <canvas id="canvas" height="0px" ></canvas>
+    <div id="more-canvas" width="1010px"></div>
+  </div>
+
+<script type='text/javascript' src="functions.js"></script>
+</body>
+</html>
